@@ -92,7 +92,7 @@ function extra(e) {
 //delivery method
 let deli = new Arr("Eat In", 0);
 function delivery(e) {
-  e.preventDefault();
+  // e.preventDefault();
   if (e.target.className == "delivery") {
     const deliName = e.target.parentElement.textContent
       .split(" (+5€)")[0]
@@ -128,7 +128,7 @@ function displayOrder(order) {
 }
 
 function createOrder(e) {
-  e.preventDefault();
+  // e.preventDefault();
   const order = {
     id: Date.now(),
     customerName: customerName.value.trim(),
@@ -171,3 +171,12 @@ pancakeForm.addEventListener("click", (e) => {
 stopBtn.addEventListener("click", () => {
   document.querySelector("#pancakeVideo").pause();
 });
+
+const seeAllLink = document.querySelectorAll(".see-all-link");
+
+seeAllLink.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault(); // Optionally prevent default behavior
+    window.open(seeAllLink.href="/orders.html", "_blank"); // Open the orders page
+  });
+})
