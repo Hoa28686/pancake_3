@@ -171,12 +171,3 @@ pancakeForm.addEventListener("click", (e) => {
 stopBtn.addEventListener("click", () => {
   document.querySelector("#pancakeVideo").pause();
 });
-
-const seeAllLink = document.querySelectorAll(".see-all-link");
-
-seeAllLink.forEach((link) => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault(); // Optionally prevent default behavior
-    window.open(seeAllLink.href="/orders.html", "_blank"); // Open the orders page
-  });
-})
