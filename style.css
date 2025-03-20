@@ -24,7 +24,7 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("../all_order/pancakes-pattern.jpg");
+  background-image: url("pancakes-pattern.jpg");
   background-size: cover;
   background-position: center;
   opacity: 0.2;
@@ -168,6 +168,8 @@ select {
 }
 #button a {
   text-decoration: none;
+  color:black;
+  z-index: 100;
 }
 
 #see-all {
