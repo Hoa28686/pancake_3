@@ -24,7 +24,7 @@ function update_sum() {
   bannerPrice.textContent = totalDisplay.textContent = finalSum + "€";
 }
 
-// Select pancake type
+// __________Select pancake type__________
 let type = "Classic";
 function pancakeType(e) {
   if (e.target.id === "type") {
@@ -48,10 +48,8 @@ function Arr(name, price) {
 let toppingArr = [];
 let extraArr = [];
 
-// //topping function
+// //__________topping function__________
 function topping(e) {
-  //console.log(e.target.parentElement);
-  //console.log(e.target);
   if (e.target.className === "topping") {
     // remove extra newlines and spaces
     const toppingName = e.target.parentElement.textContent
@@ -69,7 +67,7 @@ function topping(e) {
   }
 }
 
-//extra function
+//__________extra function__________
 function extra(e) {
   if (e.target.className === "extra") {
     // remove extra newlines and spaces
@@ -89,10 +87,9 @@ function extra(e) {
   }
 }
 
-//delivery method
+//_________delivery method__________
 let deli = new Arr("Eat In", 0);
 function delivery(e) {
-  // e.preventDefault();
   if (e.target.className == "delivery") {
     const deliName = e.target.parentElement.textContent
       .split(" (+5€)")[0]
@@ -105,15 +102,12 @@ function delivery(e) {
 }
 let id = "";
 const allOrders = [];
-// if(!localStorage.getItem('allOrders')){
-//   localStorage.setItem("allOrders", JSON.stringify(allOrders));
-//     console.log(localStorage.getItem("allOrders"));
 
-// }
+
+// __________display order, update order in localStorage__________
 
 // display template
 function displayOrder(order) {
-  // can also use: ${[...order.toppings, ...order.extras].join(", ")}
   let display = `
   Customer Name: <strong>${order.customerName}</strong> <br>
   Pancake Type: <strong>${order.selectedPancake}</strong> <br>
@@ -128,7 +122,6 @@ function displayOrder(order) {
 }
 
 function createOrder(e) {
-  // e.preventDefault();
   const order = {
     id: Date.now(),
     customerName: customerName.value.trim(),
@@ -140,22 +133,21 @@ function createOrder(e) {
     status: "waiting",
   };
 
-  // display order summary for each customer
+  // display order summary for each customer, not send it to the kitchen
   if (e.target.id === "seeOrder") {
-    // console.log(order);
     summaryText.innerHTML = "";
-
     summaryText.innerHTML += displayOrder(order);
   }
 
+  // display order summary for each customer, send it to the kitchen
   if (e.target.id === "confirmOrder") {
     allOrders.push(order);
-    // console.log(allOrders);
+
+    // show confirmed order
     summaryText.innerHTML = displayOrder(order);
 
     // save in localStorage
     localStorage.setItem("allOrders", JSON.stringify(allOrders));
-    // console.log(localStorage.getItem("allOrders"));
 
     //clear form
     pancakeForm.reset();
@@ -166,7 +158,8 @@ pancakeForm.addEventListener("click", (e) => {
   createOrder(e);
 });
 
-// stop video
+
+// __________stop video__________
 
 stopBtn.addEventListener("click", () => {
   document.querySelector("#pancakeVideo").pause();
