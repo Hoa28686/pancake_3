@@ -39,7 +39,7 @@ function pancakeType(e) {
   }
 }
 
-// //template for topping and extra items
+// //template for topping, extra items, and delivery arrays
 function Arr(name, price) {
   this.name = name;
   this.price = price;
@@ -122,7 +122,7 @@ function displayOrder(order) {
 }
 
 function createOrder(e) {
-  const order = {
+  let order = {
     id: Date.now(),
     customerName: customerName.value.trim(),
     selectedPancake: type,
@@ -151,6 +151,11 @@ function createOrder(e) {
 
     //clear form
     pancakeForm.reset();
+    type = "Classic";
+    toppingArr = [];
+    extraArr = [];
+    deli = new Arr("Eat In", 0);
+
   }
 }
 
@@ -159,8 +164,3 @@ pancakeForm.addEventListener("click", (e) => {
 });
 
 
-// __________stop video__________
-
-stopBtn.addEventListener("click", () => {
-  document.querySelector("#pancakeVideo").pause();
-});
