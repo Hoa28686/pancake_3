@@ -10,7 +10,6 @@ updateDisplay();
 //1. update local storage
 const updateLS = () => {
   localStorage.setItem("allOrders", JSON.stringify(orderList));
-  // console.log(localStorage.getItem("removedOrder"));
 };
 
 //display orders
@@ -44,7 +43,6 @@ function updateDisplay() {
 
 // template for each order
 function displayTemplate(order) {
-  // can also use: ${[...order.toppings, ...order.extras].join(", ")}
   let display = `
   User ID:<strong> ${order.id} </strong><br>
   Customer Name: <strong>${order.customerName} </strong><br>
@@ -88,7 +86,6 @@ function updateStatus(e) {
     updateLS();
     updateDisplay();
     location.reload(); //so the page the sort function(task4) right away
-    // console.log(localStorage.getItem("allOrders"));
   }
 }
 
@@ -110,10 +107,8 @@ function searchOrder(e) {
 // 4. sort order by status
 
 function sortOrder() {
-  // console.log(sort.value);
   list.forEach((order) => {
     let status = order.querySelector(".status");
-    // console.log(status.value);
     if (sort.value == "all" || sort.value == status.value) {
       order.style.display = "block";
     } else {
@@ -126,25 +121,20 @@ function sortOrder() {
 
 orderDetail.addEventListener("click", removeOrder);
 
-// let removedOrder = []; // in case user wants to have a page that tracks all removed order
 
 function removeOrder(e) {
   if (e.target.classList.contains("rm")) {
     let closestList = e.target.parentElement;
-    // console.log(e.target.parentElement);
+   
     orderDetail.removeChild(closestList);
     //update order array
     orderList.forEach((order) => {
       if (closestList.id == order.id) {
         orderList = orderList.filter((o) => o !== order);
-        // removedOrder.push(order);
-
+      
         //update local Storage
         updateLS();
 
-        //save removed Order to local storage
-        // localStorage.setItem("removedOrder", JSON.stringify(removedOrder));
-        // console.log(localStorage.getItem("removedOrder"));
       }
     });
   }
