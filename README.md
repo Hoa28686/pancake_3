@@ -1,4 +1,6 @@
-## Pancake Maker is an application that allows users to customize their pancakes, and manage pancake orders 
+## Pancake Maker
+
+Pancake Maker is an application that allows users to customize their pancakes, and manage pancake orders 
 
 **Working features:**
 
@@ -17,4 +19,4 @@ Only when customers click **Confirm order**, will the order be created and sent 
 
 - When order status is changed to delivered, a **Remove order** button will be activated, and the order can be removed thereafter. 
 
-- **All Orders** page is reloaded every time order status changes to ensure that the order is updated instantly. 
+- **All Orders** page is reloaded every time order status changes, to ensure that the order is updated instantly. 
